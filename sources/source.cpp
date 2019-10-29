@@ -32,11 +32,11 @@ public:
     bool is_object()
     {
         int i=0;
-        while(_data[i]!='{'&& _data[i]!='['&&_data[i]!='\"'&&(_data[i]<='0'||_data[i]>='9'))
+        while(_data[i] != '{'&& _data[i]!='['&&_data[i]!='\"'&&(_data[i]<='0'||_data[i]>='9'))
         {
             i++;
         }
-        if (_data[i]=='{')
+        if (_data[i] == '{')
         {
             return true ;
         }
@@ -47,11 +47,11 @@ public:
     bool is_array()
     {
         int i=0;
-        while(_data[i]!='{'&& _data[i]!='['&&_data[i]!='\"'&&(_data[i]<='0'||_data[i]>='9'))
+        while(_data[i] != '{'&& _data[i] != '['&&_data[i] != '\"'&&(_data[i] <= '0' || _data[i] >= '9'))
         {
             i++;
         }
-        if (_data[i]=='[')
+        if (_data[i] == '[')
         {
             return true ;
         }
@@ -62,7 +62,7 @@ public:
     string get_string()//считывает с начала строки,до " а потом перескакивает его
     {
         string buf;
-        while(_data[_current_pos]!='\"')
+        while(_data[_current_pos] != '\"')
         {
             buf.push_back(_data[_current_pos]);
             _current_pos++;
@@ -73,11 +73,11 @@ public:
     int get_number()//считывает число и доводит курсор до знака разделения или конца (, } ])
     {
         string meaning;
-        while(_data[_current_pos]<='0'||_data[_current_pos]>='9')
+        while(_data[_current_pos] <= '0' || _data[_current_pos] >= '9')
         {
             _current_pos++;
         }
-        while(_data[_current_pos]>='0'&&_data[_current_pos]<='9')
+        while(_data[_current_pos] >= '0'&&_data[_current_pos] <= '9')
         {
             meaning.push_back(_data[_current_pos]);
 
@@ -331,7 +331,7 @@ public:
 int main()
 {
     Json test;
-   test=Json::parse_from_file("/home/sergei/Desktop/test.json");
+   test = Json::parse_from_file("/home/sergei/Desktop/test.json");
   cout<<any_cast<string>(test["firstname"]);
       /*Json hello("{\n"
                  "    \"lastname\" : \"Ivanov\",\n"
