@@ -24,7 +24,7 @@ public:
 
     Json() {}
 
-    Json(const string &s) {
+explicit Json(const string &s) {
         _data = s;
     }
 
