@@ -39,21 +39,18 @@ explicit Json(const string &s) {
         if (_data[i] == '{') {
             return true;
         } else { return false; }
-
     }
 
     bool is_array() {
         int i = 0;
         while (_data[i] != '{' && _data[i] != '[' && _data[i] 
-        != '\"' && (_data[i] <= '0' || _data[i] >= '9')) {
+        !='\"'&&(_data[i]<='0'||_data[i]>='9')){
             i++;
         }
         if (_data[i] == '[') {
             return true;
         } else { return false; }
-
     }
-
     string get_string()//считывает с начала строки,до " а потом перескакивает его
     {
         string buf;
@@ -73,17 +70,15 @@ explicit Json(const string &s) {
         }
         while (_data[_current_pos] >= '0' && _data[_current_pos] <= '9') {
             meaning.push_back(_data[_current_pos]);
-
         }
         while (_data[_current_pos] != ',' && _data[_current_pos] != '}' && _data[_current_pos] != ']') {
             _current_pos++;
         }
         return atoi(meaning.c_str());
     }
-
     string get_key()//находит ключ и смещает значение курсора до : +1
     {
-        while (_data[_current_pos] != '\"') {
+        while (_data[_current_pos] != '\"'){
             _current_pos++;
         }
         _current_pos++;
