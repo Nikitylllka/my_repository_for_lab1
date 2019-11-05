@@ -43,7 +43,7 @@ explicit Json(const string &s) {
 
     bool is_array() {
         int i = 0;
-        while (_data[i] != '{' && _data[i] != '[' && _data[i]
+        while (_data[i]!='{'&& _data[i]!='['&&_data[i]
         !='\"'&&(_data[i]<='0'||_data[i]>='9')){
             i++;
         }
