@@ -32,7 +32,8 @@ public:
 
     bool is_object() {
         int i = 0;
-        while (_data[i] != '{' && _data[i] != '[' && _data[i] != '\"' && (_data[i] <= '0' || _data[i] >= '9')) {
+        while (_data[i] != '{' && _data[i] != '[' && _data[i] != '\"' 
+        && (_data[i] <= '0' || _data[i] >= '9')) {
             i++;
         }
         if (_data[i] == '{') {
@@ -43,7 +44,8 @@ public:
 
     bool is_array() {
         int i = 0;
-        while (_data[i] != '{' && _data[i] != '[' && _data[i] != '\"' && (_data[i] <= '0' || _data[i] >= '9')) {
+        while (_data[i] != '{' && _data[i] != '[' && _data[i] 
+        != '\"' && (_data[i] <= '0' || _data[i] >= '9')) {
             i++;
         }
         if (_data[i] == '[') {
