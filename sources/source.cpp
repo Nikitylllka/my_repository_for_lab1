@@ -43,8 +43,8 @@ explicit Json(const string &s) {
 
     bool is_array() {
         int i = 0;
-        while ( _data[i]!='{'&& _data[i]!='['&&_data[i]
-        !='\"'&&(_data[i] <= '0'||_data[i] >= '9') ){
+        while ( _data[i] != '{'&& _data[i] != '['&&_data[i]
+        != '\"'&&(_data[i] <= '0' || _data[i] >= '9' ) ){
             i++;
         }
         if (_data[i] == '[') {
@@ -92,7 +92,6 @@ explicit Json(const string &s) {
         }
         _current_pos++;
         return key;
-
     }
 
     void find_end_meaning_object()//перемещает курсор до , ] или }
