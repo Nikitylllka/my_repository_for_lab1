@@ -152,7 +152,8 @@ explicit Json(const string &s) {
             Json tmp(_data.substr(_current_pos, _data.size() - _current_pos));
             meaning = tmp.parse();
             _current_pos += tmp._current_pos;
-            if ((_data.find(",", _current_pos) < _data.find("}", _current_pos + 1)) &&
+            if ((_data.find(",", _current_pos) <
+            _data.find("}", _current_pos + 1)) &&
                 (_data.find("}", _current_pos + 1) != string::npos)) {
                 while (_data[_current_pos] != ',') {
                     _current_pos++;
@@ -165,7 +166,8 @@ explicit Json(const string &s) {
             Json tmp(_data.substr(_current_pos, _data.size() - _current_pos));
             meaning = tmp.parse();
             _current_pos += tmp._current_pos;
-            if ((_data.find(",", _current_pos) < _data.find("]", _current_pos + 1)) &&
+            if ((_data.find(",", _current_pos) <
+            _data.find("]", _current_pos + 1)) &&
                 (_data.find(",", _current_pos) != string::npos)) {
                 while (_data[_current_pos] != ',') {
                     _current_pos++;
@@ -202,7 +204,6 @@ explicit Json(const string &s) {
             meaning = get_the_meaning();
             _meanings.push_back(meaning);
             find_end_meaning_object();
-
         }
         if (_data.find(",", _current_pos) != string::npos) {
             _current_pos++;
@@ -222,7 +223,6 @@ explicit Json(const string &s) {
             _current_pos++;
             if (_data[_current_pos] != ']') { _array_meanings.push_back(get_the_meaning()); }
             find_end_meaning_object();
-
         }
         if (_data.find(",", _current_pos) != string::npos) {
             _current_pos++;
@@ -248,7 +248,6 @@ explicit Json(const string &s) {
             cout << "it's object ";
             object_parse();
         }
-
         return *(this);
     }
 
@@ -275,7 +274,6 @@ explicit Json(const string &s) {
             return _array_meanings[index];
         }
     }
-
 };
 
 
