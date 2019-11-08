@@ -116,9 +116,9 @@ explicit Json(const string &s) {
 
     any get_the_meaning() {
         any meaning;
-        while (_data[_current_pos] != '{' && _data[_current_pos] 
+        while (_data[_current_pos] != '{' && _data[_current_pos]
         != '[' && _data[_current_pos] != '\"' &&
-               (_data[_current_pos] <= '0' || _data[_current_pos] 
+               (_data[_current_pos] <= '0' || _data[_current_pos]
                >= '9') && _data[_current_pos] != 't' &&
                _data[_current_pos] != 'f') {
             _current_pos++;
@@ -138,11 +138,9 @@ explicit Json(const string &s) {
             while (_data[_current_pos] >= 'a' && _data[_current_pos] <= 'z') {
                 buf.push_back(_data[_current_pos]);
                 _current_pos++;
-
             }
             if (buf == "true") {
                 meaning = true;
-
             }
             if (buf == "false") {
                 meaning = false;
@@ -159,7 +157,6 @@ explicit Json(const string &s) {
                 while (_data[_current_pos] != ',') {
                     _current_pos++;
                 }
-
             }
             return meaning;
         }
@@ -176,7 +173,6 @@ explicit Json(const string &s) {
             }
             return meaning;
         }
-
     }
 
     static Json parse_from_file(const string &path_file) {
@@ -260,7 +256,6 @@ explicit Json(const string &s) {
         Json tmp;
         tmp._data = s;
         tmp.parse();
-
         return tmp;
     }
 
