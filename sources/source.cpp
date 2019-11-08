@@ -221,14 +221,14 @@ explicit Json(const string &s) {
     void array_parse() {
         while (_data[_current_pos] != ']') {
             _current_pos++;
-            if (_data[_current_pos] != ']') { _array_meanings.push_back(get_the_meaning()); }
+            if (_data[_current_pos] != ']')
+            { _array_meanings.push_back(get_the_meaning()); }
             find_end_meaning_object();
         }
         if (_data.find(",", _current_pos) != string::npos) {
             _current_pos++;
         } else {
             if (_data.find("}", _current_pos) != string::npos) {
-
                 _current_pos++;
             } else {
                 if (_data.find("]", _current_pos + 1) != string::npos) {
@@ -239,7 +239,6 @@ explicit Json(const string &s) {
     }
 
     Json parse() {
-
         if (this->is_array()) {
             cout << "it's array";
             array_parse();
@@ -266,7 +265,6 @@ explicit Json(const string &s) {
             }
             return _meanings[i];
         }
-
     }
 
     any &operator[](const int &index) {
