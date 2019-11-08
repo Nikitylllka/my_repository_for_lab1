@@ -100,7 +100,6 @@ explicit Json(const string &s) {
         && _data[_current_pos] != ']') {
             _current_pos++;
         }
-
     }
 
 
@@ -117,8 +116,10 @@ explicit Json(const string &s) {
 
     any get_the_meaning() {
         any meaning;
-        while (_data[_current_pos] != '{' && _data[_current_pos] != '[' && _data[_current_pos] != '\"' &&
-               (_data[_current_pos] <= '0' || _data[_current_pos] >= '9') && _data[_current_pos] != 't' &&
+        while (_data[_current_pos] != '{' && _data[_current_pos] 
+        != '[' && _data[_current_pos] != '\"' &&
+               (_data[_current_pos] <= '0' || _data[_current_pos] 
+               >= '9') && _data[_current_pos] != 't' &&
                _data[_current_pos] != 'f') {
             _current_pos++;
         }
