@@ -273,7 +273,7 @@ explicit Json(const string &s) {
             }
             return _meanings[i];
         }
-        return _meanings[i];
+        return _meanings[0];
     }
 
     any &operator[](const int &index) {
