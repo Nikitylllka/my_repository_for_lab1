@@ -267,7 +267,7 @@ explicit Json(const string &s) {
 
     any &operator[](const string &key) {
         if (this->is_object()) {
-            unsigned long i;
+            long i;
             for (i = 0; i < _keys.size(); i++) {
                 if (_keys[i] == key) { break; }
             }
@@ -304,23 +304,25 @@ int main() {
                "}");
 
     hello.parse();
-    auto hi=any_cast<Json>(hello["marks"]);
+    auto hi = any_cast<Json>(hello["marks"]);
     if (!any_cast<bool>(hello._meanings[3]))
     {
         //cout<<any_cast<string>(hi._meanings[1])<<endl;
-        cout<<any_cast<int>(hi[4])<<endl;
-        cout<<any_cast<int>(hello["age"])<<endl;
+        cout << any_cast<int>(hi[4]) << endl;
+        cout << any_cast<int>(hello["age"]) << endl;
     }
 
     Json hey("[\n"
-             "    {\"ticker\":\"S\", \"description\": \"Futures contract for USD/RUB\"},\n"
+             "    {\"ticker\":\"S\","
+             " \"description\": \"Futures contract for USD/RUB\"},\n"
              "    [1 , [1]] ,\n"
-             "    {\"ticker\":\"GAZP-9.15\",  \"description\": \"Futures contract for GAZPROM shares\"}"
+             "    {\"ticker\":\"GAZP-9.15\",  "
+             "\"description\": \"Futures contract for GAZPROM shares\"}"
              " ]");
     hey.parse();
-    Json hola=any_cast<Json>(hey[1]);
-    Json her =any_cast<Json>(hola[1]);
-    cout<<any_cast<int>(her[0])<<endl;
+    Json hola = any_cast<Json>(hey[1]);
+    Json her = any_cast<Json>(hola[1]);
+    cout << any_cast<int>(her[0]) << endl;
 
     return 0;
 }
