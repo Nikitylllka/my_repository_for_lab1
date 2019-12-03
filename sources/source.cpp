@@ -182,7 +182,7 @@ explicit Json(const string &s) {
             }
             return meaning;
         }
-        return nullptr;
+        return meaning;
     }
 
     static Json parse_from_file(const string &path_file) {
@@ -273,14 +273,14 @@ explicit Json(const string &s) {
             }
             return _meanings[i];
         }
-        return nullptr;
+        return _meanings[i];
     }
 
     any &operator[](const int &index) {
         if (this->is_array()) {
             return _array_meanings[index];
         }
-        return nullptr;
+        return _meanings[index];
     }
 };
 
@@ -308,8 +308,8 @@ int main() {
     if (!any_cast<bool>(hello._meanings[3]))
     {
         //cout<<any_cast<string>(hi._meanings[1])<<endl;
-        cout << any_cast<int>(hi[4]) << endl;
-        cout << any_cast<int>(hello["age"]) << endl;
+        cout << any_cast<int>(hi[4]) << std::endl;
+        cout << any_cast<int>(hello["age"]) << std::endl;
     }
 
     Json hey("[\n"
@@ -322,7 +322,7 @@ int main() {
     hey.parse();
     Json hola = any_cast<Json>(hey[1]);
     Json her = any_cast<Json>(hola[1]);
-    cout << any_cast<int>(her[0]) << endl;
+    cout << any_cast<int>(her[0]) << std::endl;
 
     return 0;
 }
