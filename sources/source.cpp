@@ -182,6 +182,7 @@ explicit Json(const string &s) {
             }
             return meaning;
         }
+        return nullptr;
     }
 
     static Json parse_from_file(const string &path_file) {
@@ -266,18 +267,20 @@ explicit Json(const string &s) {
 
     any &operator[](const string &key) {
         if (this->is_object()) {
-            int i;
+            unsigned long i;
             for (i = 0; i < _keys.size(); i++) {
                 if (_keys[i] == key) { break; }
             }
             return _meanings[i];
         }
+        return nullptr;
     }
 
     any &operator[](const int &index) {
         if (this->is_array()) {
             return _array_meanings[index];
         }
+        return nullptr;
     }
 };
 
