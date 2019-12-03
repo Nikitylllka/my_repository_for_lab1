@@ -312,17 +312,5 @@ int main() {
         cout << any_cast<int>(hello["age"]) << std::endl;
     }
 
-    Json hey("[\n"
-             "    {\"ticker\":\"S\","
-             " \"description\": \"Futures contract for USD/RUB\"},\n"
-             "    [1 , [1]] ,\n"
-             "    {\"ticker\":\"GAZP-9.15\",  "
-             "\"description\": \"Futures contract for GAZPROM shares\"}"
-             " ]");
-    hey.parse();
-    Json hola = any_cast<Json>(hey[1]);
-    Json her = any_cast<Json>(hola[1]);
-    cout << any_cast<int>(her[0]) << std::endl;
-
     return 0;
 }
