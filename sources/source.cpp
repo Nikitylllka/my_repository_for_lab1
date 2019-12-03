@@ -287,9 +287,9 @@ explicit Json(const string &s) {
 
 int main() {
     Json test;
-    test = Json::parse_from_file("/home/sergei/Desktop/test.json");
-    cout << any_cast<string>(test["firstname"]);
-    /*Json hello("{\n"
+   // test = Json::parse_from_file("/home/sergei/Desktop/test.json");
+    //cout << any_cast<string>(test["firstname"]);
+    Json hello("{\n"
                "    \"lastname\" : \"Ivanov\",\n"
                "    \"firstname\" : \"Ivan\",\n"
                "    \"age\" : 25,\n"
@@ -312,8 +312,6 @@ int main() {
         cout<<any_cast<int>(hello["age"])<<endl;
     }
 
-
-
     Json hey("[\n"
              "    {\"ticker\":\"S\", \"description\": \"Futures contract for USD/RUB\"},\n"
              "    [1 , [1]] ,\n"
@@ -322,7 +320,7 @@ int main() {
     hey.parse();
     Json hola=any_cast<Json>(hey[1]);
     Json her =any_cast<Json>(hola[1]);
-    cout<<any_cast<int>(her[0])<<endl;*/
+    cout<<any_cast<int>(her[0])<<endl;
 
     return 0;
 }
