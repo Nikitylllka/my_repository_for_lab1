@@ -267,8 +267,8 @@ explicit Json(const string &s) {
 
     any &operator[](const string &key) {
         if (this->is_object()) {
-            long int i;
-            for (i = 0; i < _keys.size(); i++) {
+            int i;
+            for (i = 0; i <(int)_keys.size(); i++) {
                 if (_keys[i] == key) { break; }
             }
             return _meanings[i];
