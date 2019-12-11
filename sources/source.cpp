@@ -306,7 +306,6 @@ int main() {
     auto hi = any_cast<Json>(hello["marks"]);
     if (!any_cast<bool>(hello._meanings[3]))
     {
-
         cout << any_cast<int>(hi[4]) << std::endl;
         cout << any_cast<int>(hello["age"]) << std::endl;
     }
