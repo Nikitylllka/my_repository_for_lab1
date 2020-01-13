@@ -1,4 +1,4 @@
-// Copyright 2018 Your Name <your_email>
+// Copyright 2018 Nikitylllka <your_email>
 
 #ifndef INCLUDE_HEADER_HPP_
 #define INCLUDE_HEADER_HPP_
